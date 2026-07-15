@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Gabriela Velasco | Art × Code × Movement</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+}
+
+body{
+ font-family:Inter,sans-serif;
+ background:#05060a;
+ color:#eaeaea;
+ overflow-x:hidden;
+ line-height:1.6;
+}
+
+/* NAV */
+
+nav{
+ position:fixed;
+ top:0;
+ width:100%;
+ display:flex;
+ justify-content:center;
+ flex-wrap:wrap;
+ gap:28px;
+ padding:16px 8%;
+ background:rgba(10,10,20,.7);
+ backdrop-filter:blur(12px);
+ z-index:1000;
+}
+
+nav a{
+ color:#aaa;
+ text-decoration:none;
+ font-size:13px;
+ letter-spacing:2px;
+ transition:.3s;
+}
+
+nav a:hover{
+ color:white;
+}
+
+
+/* HERO */
+
+header{
+ min-height:100vh;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ padding:120px 10% 50px;
+ background:radial-gradient(circle at top,#1a1a3a,#05060a);
+ position:relative;
+}
+
+.hero-inner{
+ display:grid;
+ grid-template-columns:2fr 1fr;
+ gap:40px;
+ align-items:center;
+ width:100%;
+}
+
+
+h1{
+ font-family:"Playfair Display";
+ font-size:3.6rem;
+ background:linear-gradient(90deg,#ff3cac,#784ba0,#2b86c5);
+ -webkit-background-clip:text;
+ -webkit-text-fill-color:transparent;
+}
+
+
+.hero-sub{
+ margin-top:20px;
+ color:#ccc;
+ font-size:1.1rem;
+}
+
+
+#typing{
+ margin-top:15px;
+ color:#bbb;
+ min-height:30px;
+}
+
+
+.hero-photo{
+ display:flex;
+ justify-content:center;
+}
+
+
+.hero-photo img{
+ width:100%;
+ max-width:360px;
+ height:auto;
+ border-radius:24px;
+ object-fit:cover;
+ box-shadow:0 20px 40px rgba(0,0,0,.6);
+}
+
+
+
+/* FLOATING CIRCLES */
+
+.circle{
+ position:absolute;
+ width:260px;
+ height:260px;
+ border-radius:50%;
+ background:rgba(255,255,255,.05);
+ filter:blur(40px);
+ animation:float 12s infinite ease-in-out;
+}
+
+
+.circle:nth-child(1){
+ top:10%;
+ left:12%;
+}
+
+.circle:nth-child(2){
+ bottom:10%;
+ right:10%;
+}
+
+
+@keyframes float{
+ 0%,100%{
+ transform:translateY(0)
+ }
+ 50%{
+ transform:translateY(-40px)
+ }
+}
+
+
+
+/* SECTIONS */
+
+section{
+ padding:110px 10%;
+ opacity:0;
+ transform:translateY(40px);
+ transition:1s ease;
+}
+
+
+section.show{
+ opacity:1;
+ transform:translateY(0);
+}
+
+
+h2{
+ font-family:"Playfair Display";
+ font-size:2rem;
+ letter-spacing:2px;
+ margin-bottom:30px;
+}
+
+
+
+/* CARDS */
+
+.card{
+ background:rgba(255,255,255,.04);
+ padding:26px;
+ border-radius:14px;
+ border:1px solid rgba(255,255,255,.08);
+ margin-bottom:20px;
+}
+
+
+.card a{
+ color:#ff3cac;
+}
+
+
+
+/* GENERAL GRID */
+
+.grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+ gap:24px;
+}
+
+
+
+/* TAGS */
+
+.tag{
+ display:inline-block;
+ padding:6px 12px;
+ margin:4px;
+ background:rgba(255,255,255,.07);
+ border-radius:20px;
+ font-size:12px;
+}
+
+
+
+/* LAYOUTS */
+
+.about-layout,
+.dance-layout,
+.classes-layout,
+.tech-layout{
+ display:grid;
+ grid-template-columns:2fr 1fr;
+ gap:30px;
+ align-items:start;
+}
+
+
+.about-photo,
+.dance-photo,
+.classes-photo,
+.tech-photo{
+ display:flex;
+ justify-content:center;
+}
+
+
+
+.about-photo img,
+.dance-photo img,
+.classes-photo img,
+.tech-photo img{
+ width:100%;
+ height:auto;
+ object-fit:cover;
+ border-radius:20px;
+ box-shadow:0 18px 36px rgba(0,0,0,.6);
+}
+
+
+
+
+/* ACCORDION */
+
+
+.acc button{
+
+ width:100%;
+ padding:14px;
+ margin-bottom:8px;
+
+ background:#111;
+ border:none;
+ color:white;
+
+ cursor:pointer;
+ border-radius:8px;
+
+ text-align:left;
+}
+
+
+.panel{
+
+ max-height:0;
+ overflow:hidden;
+
+ transition:.4s ease;
+
+ background:rgba(255,255,255,.03);
+
+ padding:0 15px;
+
+ border-radius:8px;
+}
+
+
+.rosa{
+ color:#ff3cac!important;
+}
+
+
+
+/* TIMELINE */
+
+.timeline{
+
+ border-left:2px solid rgba(255,255,255,.2);
+
+ padding-left:20px;
+
+}
+
+
+.timeline-item{
+ margin-bottom:25px;
+}
+
+
+.timeline-item h3{
+ color:white;
+ font-size:1.1rem;
+}
+
+
+.timeline-item span{
+ color:#aaa;
+}
+
+
+
+
+
+/* PORTFOLIO */
+
+.portfolio-grid{
+
+ display:grid;
+
+ grid-template-columns:
+ repeat(auto-fit,minmax(260px,1fr));
+
+ gap:22px;
+
+}
+
+
+.port-card a{
+
+ color:#ff3cac;
+
+ text-decoration:none;
+
+}
+
+
+
+
+
+/* NEW RESPONSIVE GALLERY CSS */
+
+.gallery-section-title {
+ margin-top: 40px;
+ margin-bottom: 20px;
+ font-size: 1.3rem;
+ color: #ff3cac;
+ letter-spacing: 1px;
+ text-transform: uppercase;
+ border-left: 3px solid #ff3cac;
+ padding-left: 10px;
+}
+
+.gallery-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+ gap: 20px;
+ margin-bottom: 50px;
+}
+
+.gallery-item {
+ width: 100%;
+ overflow: hidden;
+ border-radius: 14px;
+ background: rgba(255,255,255,0.02);
+ box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+ transition: .4s ease;
+}
+
+.gallery-item img {
+ width: 100%;
+ height: 100%;
+ display: block;
+ object-fit: cover;
+ transition: .4s ease;
+}
+
+.gallery-item:hover {
+ transform: scale(1.02);
+ box-shadow: 0 15px 30px rgba(255, 60, 172, 0.2);
+}
+
+/* Aspect Ratios per Category */
+.landscape-grid .gallery-item {
+ aspect-ratio: 16 / 9;
+}
+
+.portrait-grid .gallery-item {
+ aspect-ratio: 3 / 4;
+}
+
+.square-grid .gallery-item {
+ aspect-ratio: 1 / 1;
+}
+
+
+/* FEATURED DANCE LANDSCAPE */
+.featured-dance img {
+ width: 100%;
+ height: auto;
+ aspect-ratio: 16 / 9;
+ object-fit: cover;
+ border-radius: 20px;
+ box-shadow: 0 18px 36px rgba(0,0,0,.6);
+}
+.featured-caption {
+ margin-top: 15px;
+ text-align: center;
+ color: #aaa;
+ font-style: italic;
+}
+
+
+/* FOOTER */
+
+footer{
+
+ text-align:center;
+
+ padding:60px;
+
+ color:#555;
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+ header{
+
+ padding:140px 6% 60px;
+
+ }
+
+
+.hero-inner,
+.about-layout,
+.dance-layout,
+.classes-layout,
+.tech-layout{
+
+ grid-template-columns:1fr;
+
+ text-align:center;
+
+}
+
+
+nav{
+
+ gap:14px;
+
+}
+
+
+h1{
+
+ font-size:2.5rem;
+
+}
+
+
+.gallery-grid{
+
+ grid-template-columns:1fr;
+
+}
+
+
+.acc button{
+
+ text-align:center;
+
+}
+
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="#about">ABOUT</a>
+<a href="#dance">DANCE</a>
+<a href="#classes">CLASSES</a>
+<a href="#tech">TECH</a>
+<a href="#exp">EXPERIENCE</a>
+<a href="#portfolio">PORTFOLIO</a>
+<a href="#gallery">GALLERY</a>
+<a href="#contact">CONTACT</a>
+</nav>
+
+
+<header>
+
+<div class="circle"></div>
+<div class="circle"></div>
+
+
+<div class="hero-inner">
+
+<div>
+
+<h1>Gabriela Velasco</h1>
+
+<p class="hero-sub">
+Art × Code × Movement — eine Fusion aus Tanz, Technologie und kreativen Systemen.
+</p>
+
+<div id="typing"></div>
+
+</div>
+
+
+<div class="hero-photo">
+
+<img src="img/dance_24_828x1035.png" alt="Gabriela Velasco Portrait" loading="lazy">
+
+</div>
+
+</div>
+
+</header>
+
+
+
+<section id="about">
+
+<h2>ABOUT</h2>
+
+
+<div class="about-layout">
+
+
+<div>
+
+
+<div class="card">
+
+<p>
+Gabriela Velasco bewegt sich zwischen den Welten von Technologie,
+künstlerischer Körperbewegung und kreativen Systemen.
+Als Webentwicklerin, IT-Systemadministratorin, Tänzerin und Choreografin
+verbindet sie digitale Präzision mit körperlichem Ausdruck.
+</p>
+
+</div>
+
+
+
+<div class="card acc">
+
+
+<button onclick="toggle(this)">
+Biografie – ausführlich
+</button>
+
+
+<div class="panel">
+
+<p>
+
+Gabriela begann ihre künstlerische Ausbildung im klassischen Ballett
+und Musik bereits im Alter von sieben Jahren.
+Sie war staatliche Balletttänzerin, Mitgründerin des
+Balé da Cidade de Taubaté und leitete internationale Tanzprojekte.
+
+Parallel entwickelte sie sich zur Webentwicklerin,
+Fachinformatikerin und IT-Systemadministratorin mit Fokus auf
+Webtechnologien, Infrastruktur, Monitoring und Sicherheit.
+
+</p>
+
+</div>
+
+
+
+<button onclick="toggle(this)">
+Dance × Technology – Philosophie
+</button>
+
+
+<div class="panel">
+
+<p>
+
+Ihre Projekte entstehen an der Schnittstelle zwischen Kunst,
+Wissenschaft und Technologie.
+Bewegung wird zum Code, Code wird zur Choreografie.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<div class="about-photo">
+
+<img 
+src="img/dance_26_828x1035.png"
+alt="Dance portrait"
+loading="lazy">
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+
+<section>
+
+
+<div class="featured-dance">
+
+
+<img 
+src="img/dance_29_1600x1200.png"
+alt="Gabriela Dance Landscape"
+loading="lazy">
+
+
+<div class="featured-caption">
+
+Bewegung ist meine erste Sprache – Tanz als Forschung, Ausdruck und Erinnerung.
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<section id="dance">
+
+
+<h2>DANCE UNIVERSE</h2>
+
+
+
+<div class="dance-layout">
+
+
+<div class="card acc">
+
+
+<button onclick="toggle(this)">
+Ballett & Modern Dance
+</button>
+
+<div class="panel">
+
+<p>
+
+Klassisches Ballett und Modern Dance bilden die Grundlage.
+Technik, Haltung, Musikalität und Präzision werden verbunden.
+
+</p>
+
+</div>
+
+
+
+<button onclick="toggle(this)">
+Contemporary & Brazilian Rhythm
+</button>
+
+<div class="panel">
+
+<p>
+
+Contemporary, Contact Improvisation,
+Modern Dance und brasilianische Rhythmen
+entwickeln eine persönliche Bewegungssprache.
+
+</p>
+
+</div>
+
+
+
+<button onclick="toggle(this)">
+Improvisation & Butoh Forschung
+</button>
+
+<div class="panel">
+
+<p>
+
+Körper, Erinnerung und Emotion werden als choreografisches Material erforscht.
+
+</p>
+
+</div>
+
+
+</div>
+
+
+
+<div class="dance-photo">
+
+
+<img 
+src="img/dance_19_828x1472.png"
+alt="Contemporary dance"
+loading="lazy">
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<section id="classes">
+
+
+<h2>CLASSES & WORKSHOPS</h2>
+
+
+<div class="classes-layout">
+
+
+<div>
+
+
+<div class="card">
+
+<p>
+
+Gabriela bietet professionellen Unterricht,
+Workshops und individuelle Trainingskonzepte
+für Anfänger:innen bis professionelle Tänzer:innen.
+
+</p>
+
+</div>
+
+
+
+<div class="card acc">
+
+
+<button onclick="toggle(this)">
+Kinderballett & Kreativer Kindertanz
+</button>
+
+
+<div class="panel">
+
+<p>
+
+Spielerischer Einstieg in Ballett,
+Rhythmus, Koordination und Körperbewusstsein.
+
+</p>
+
+</div>
+
+
+
+
+<button onclick="toggle(this)" class="rosa">
+
+Want to learn dance with me? Contact me
+
+</button>
+
+
+<div class="panel">
+
+<p>
+
+Für Unterricht, Workshops oder private Sessions:
+
+<br><br>
+
+✉️ gabriela.luppe@gmail.com
+
+<br>
+
+🌐 www.gabrielavelasco.de
+
+<br>
+
+📱 +49 176 420 70836
+
+</p>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="classes-photo">
+
+
+<img
+
+src="img/dance_25_2048x1536.png"
+
+alt="Workshops Landscape"
+
+loading="lazy">
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+ 
+<section id="tech">
+
+<h2>TECHNOLOGY</h2>
+
+<div class="tech-layout">
+
+<div>
+
+<div class="card">
+
+<p>
+Fullstack Development, IT-Systemadministration, IoT-Experimente,
+Virtualisierung, Monitoring und Automation.
+<br><br>
+Code wird zur Choreografie, Systeme werden zu Bewegung.
+</p>
+
+<br>
+
+<span class="tag">Angular</span>
+<span class="tag">React</span>
+<span class="tag">TypeScript</span>
+<span class="tag">Java</span>
+<span class="tag">Python</span>
+<span class="tag">Node.js</span>
+<span class="tag">REST API</span>
+<span class="tag">Proxmox</span>
+<span class="tag">Linux</span>
+<span class="tag">Azure</span>
+<span class="tag">Entra ID</span>
+<span class="tag">Zabbix</span>
+
+</div>
+
+
+<div class="card acc">
+
+<button class="rosa" onclick="toggle(this)">
+Want your own website? Contact me
+</button>
+
+<div class="panel">
+
+<p>
+
+Gabriela develops modern websites for businesses,
+artists, studios, and creative projects.
+
+<br><br>
+
+HTML, CSS, JavaScript, Angular, React,
+Hosting, Domain Setup, and technical administration.
+
+</p>
+
+</div>
+
+
+
+<button onclick="toggle(this)">
+IT Administration & Infrastruktur
+</button>
+
+<div class="panel">
+
+<p>
+
+Active Directory, Microsoft 365, Entra ID,
+Intune, Proxmox, Hyper-V, Firewalls,
+VPN, DNS, DHCP, Monitoring.
+
+</p>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<div class="tech-photo">
+
+<img 
+src="img/dance_27_828x1035.png"
+alt="Gabriela Tech Portrait"
+loading="lazy">
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+
+<section id="exp">
+
+<h2>EXPERIENCE</h2>
+
+
+<div class="grid">
+
+
+<div class="card">
+
+<h3>Timeline</h3>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<h3>IT-Systemadministratorin – Nicolay GmbH</h3>
+<span>2025–2026</span>
+</div>
+
+
+<div class="timeline-item">
+<h3>Fachinformatikerin – Biteno GmbH</h3>
+<span>2025</span>
+</div>
+
+
+<div class="timeline-item">
+<h3>Fullstack Developer – DATEC24</h3>
+<span>2023–2024</span>
+</div>
+
+
+<div class="timeline-item">
+<h3>Internationale Tänzerin & Choreografin</h3>
+<span>2005–2021</span>
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>Creative & Technical Journey</h3>
+
+<p>
+
+Eine Verbindung aus Kunst, Technologie,
+Bewegung und digitalen Systemen.
+
+</p>
+
+</div>
+
+
+<div class="card timeline-photo">
+
+<img
+src="img/dance_28_828x1035.png"
+alt="Experience Portrait"
+loading="lazy">
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+
+
+<section id="portfolio">
+
+<h2>PORTFOLIO</h2>
+
+
+<div class="portfolio-grid">
+
+
+<div class="card port-card">
+
+<h3>Artistic Dance History</h3>
+
+<p>
+Projekte, Biografie und Choreografien.
+</p>
+
+<a href="https://gabivelasco.github.io/ArtisticDance_Web/" target="_blank">
+Visit Site
+</a>
+
+</div>
+
+
+
+<div class="card port-card">
+
+<h3>Web Profile</h3>
+
+<p>
+Technisches Entwicklerprofil.
+</p>
+
+<a href="https://gabivelasco.github.io/Web-Profile/" target="_blank">
+Visit Site
+</a>
+
+</div>
+
+
+
+<div class="card port-card">
+
+<h3>GitHub</h3>
+
+<p>
+Code, Projekte und Experimente.
+</p>
+
+<a href="https://github.com/GabiVelasco" target="_blank">
+github.com/GabiVelasco
+</a>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+
+
+<section id="gallery">
+
+<h2>GALLERY</h2>
+
+<!-- CATEGORY 1: LANDSCAPE (16:9 / Horizontal) -->
+<div class="gallery-section-title">Landscape & Action</div>
+<div class="gallery-grid landscape-grid">
+ <div class="gallery-item"><img src="img/dance_06_947x640.png" alt="Dance Landscape" loading="lazy"></div>
+ <div class="gallery-item"><img src="img/dance_18_828x442.png" alt="Dance Landscape Wide" loading="lazy"></div>
+ <div class="gallery-item"><img src="img/dance_29_1600x1200.png" alt="Dance Move" loading="lazy"></div>
+</div>
+
+<!-- CATEGORY 2: PORTRAIT (Vertical Dance Styles) -->
+<div class="gallery-section-title">Dance & Movement (Portrait)</div>
+<div class="gallery-grid portrait-grid">
+ <div class="gallery-item"><img src="img/dance_01_828x1472.jpg" alt="Dance Portrait 01" loading="lazy"></div>
+ <div class="gallery-item"><img src="img/dance_02_828x1472.jpg" alt="Dance Portrait 02" loading="lazy"></div>
+ <div class="gallery-item"><img src="img/dance_03_828x1472.jpg" alt="Dance Portrait 03" loading="lazy"></div>
+ <div class="gallery-item"><img src="img/dance_04_828x1472.jpeg" alt="Dance Portrait 04" loading="lazy"></div>
+ <div class="gallery-item"><img src="img/dance_05_828x1472.png" alt="Dance Portrait 05" loading="lazy"></div>
+ <div class="gallery-item"><img src="img/dance_08_828x1472.png" alt="Dance Portrait 08" loading="lazy"></div>
+ <div class="gallery-item"><img src="img/dance_09_828x1472.png" alt="Dance Portrait 09" loading="lazy"></div>
+ <div class="gallery-item"><img src="img/dance_11_828x1472.png" alt="Dance Portrait 11" loading="lazy"></div>
+ <div class="gallery-item"><img src="img/dance_12_828x1472.png" alt="Dance Portrait 12" loading="lazy"></div>
+ <div class="gallery-item"><img src="img/dance_13_828x1472.png" alt="Dance Portrait 13" loading="lazy"></div>
+ <div class="gallery-item"><img src="img/dance_14_828x1472.png" alt="Dance Portrait 14" loading="lazy"></div>
+ <div class="gallery-item"><img src="img/dance_15_1024x1536.png" alt="Dance Portrait 15" loading="lazy"></div>
+ <div class="gallery-item"><img src="img/dance_16_828x1472.png" alt="Dance Portrait 16" loading="lazy"></div>
+ <div class="gallery-item"><img src="img/dance_19_828x1472.png" alt="Dance Portrait 19" loading="lazy"></div>
+ <div class="gallery-item"><img src="img/dance_20_828x1472.png" alt="Dance Portrait 20" loading="lazy"></div>
+ <div class="gallery-item"><img src="img/dance_30_1024x1536.png" alt="Dance Portrait 30" loading="lazy"></div>
+</div>
+
+<!-- CATEGORY 3: SQUARE & CLOSE FRAMES -->
+<div class="gallery-section-title">Studio & Profiles</div>
+<div class="gallery-grid square-grid">
+ <div class="gallery-item"><img src="img/dance_07_828x722.png" alt="Dance Square Studio" loading="lazy"></div>
+ <div class="gallery-item"><img src="img/dance_10_828x1035.png" alt="Dance Focus" loading="lazy"></div>
+ <div class="gallery-item"><img src="img/dance_17_1502x1298.png" alt="Dance Geometry" loading="lazy"></div>
+ <div class="gallery-item"><img src="img/dance_21_828x1104.png" alt="Dance Art" loading="lazy"></div>
+ <div class="gallery-item"><img src="img/dance_22_1536x2048.png" alt="Dance Large Frame" loading="lazy"></div>
+ <div class="gallery-item"><img src="img/dance_23_1078x1075.png" alt="Dance Square Profile" loading="lazy"></div>
+ <div class="gallery-item"><img src="img/dance_24_828x1035.png" alt="Dance Close up" loading="lazy"></div>
+ <div class="gallery-item"><img src="img/dance_26_828x1035.png" alt="Dance Portrait Base" loading="lazy"></div>
+ <div class="gallery-item"><img src="img/dance_27_828x1035.png" alt="Tech Profile Alt" loading="lazy"></div>
+ <div class="gallery-item"><img src="img/dance_28_828x1035.png" alt="Experience Alt" loading="lazy"></div>
+</div>
+
+</section>
+
+
+
+
+
+
+<section id="contact">
+
+<h2>CONTACT</h2>
+
+
+<div class="card">
+
+Email:
+<a href="mailto:gabriela.luppe@gmail.com">
+gabriela.luppe@gmail.com
+</a>
+
+<br>
+
+GitHub:
+<a href="https://github.com/GabiVelasco" target="_blank">
+github.com/GabiVelasco
+</a>
+
+<br>
+
+Website:
+<a href="https://www.gabrielavelasco.de" target="_blank">
+www.gabrielavelasco.de
+</a>
+
+<br>
+
+Telefon:
++49 176 420 70836
+
+
+</div>
+
+</section>
+
+
+
+
+
+<footer>
+
+© Gabriela Velasco — Art × Code × Movement
+
+</footer>
+
+
+
+
+
+<script>
+
+
+document.querySelectorAll('nav a').forEach(a=>{
+
+a.onclick=e=>{
+
+e.preventDefault();
+
+document.querySelector(a.getAttribute('href'))
+.scrollIntoView({
+behavior:'smooth'
+});
+
+}
+
+});
+
+
+
+
+
+const sections=document.querySelectorAll('section');
+
+
+const obs=new IntersectionObserver(entries=>{
+
+entries.forEach(e=>{
+
+if(e.isIntersecting){
+
+e.target.classList.add('show');
+
+}
+
+});
+
+
+},{threshold:.15});
+
+
+sections.forEach(s=>obs.observe(s));
+
+
+
+
+
+
+function toggle(btn){
+
+const panel=btn.nextElementSibling;
+
+panel.style.maxHeight =
+panel.style.maxHeight ? null :
+panel.scrollHeight+"px";
+
+}
+
+
+
+
+
+const text=
+"Art · Code · Movement · Systems Thinking · Choreography of Technology";
+
+
+let i=0;
+
+
+function type(){
+
+if(i<text.length){
+
+document.getElementById("typing").innerHTML+=
+text.charAt(i);
+
+i++;
+
+setTimeout(type,40);
+
+}
+
+}
+
+
+type();
+
+
+</script>
+
+
+</body>
+</html>

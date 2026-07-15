@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Gabriela Velasco | Art × Code × Movement</title>
+
+<!-- FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* GLOBAL */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:Inter, sans-serif;
+  background:#05060a;
+  color:#eaeaea;
+  overflow-x:hidden;
+  line-height:1.6;
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  padding:18px;
+  background:rgba(10,10,20,0.6);
+  backdrop-filter:blur(12px);
+  z-index:1000;
+}
+nav a{
+  color:#aaa;
+  text-decoration:none;
+  font-size:13px;
+  letter-spacing:2px;
+  transition:0.3s;
+}
+nav a:hover{color:white}
+
+/* HERO */
+header{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background:radial-gradient(circle at top,#1a1a3a,#05060a);
+  position:relative;
+  padding:0 10%;
+}
+h1{
+  font-size:4rem;
+  font-family:Playfair Display;
+  background:linear-gradient(90deg,#ff3cac,#784ba0,#2b86c5);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+#typing{
+  margin-top:20px;
+  color:#bbb;
+  font-weight:300;
+  font-size:1.2rem;
+  min-height:40px;
+}
+
+/* FLOATS */
+.circle{
+  position:absolute;
+  width:250px;height:250px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.05);
+  filter:blur(40px);
+  animation:float 12s infinite ease-in-out;
+}
+.circle:nth-child(1){top:10%;left:20%;}
+.circle:nth-child(2){bottom:15%;right:15%;}
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-40px)}
+}
+
+/* SECTIONS */
+section{
+  padding:120px 10%;
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s ease;
+}
+section.show{
+  opacity:1;
+  transform:translateY(0);
+}
+h2{
+  margin-bottom:30px;
+  font-size:2rem;
+  letter-spacing:2px;
+  color:#fff;
+  font-family:Playfair Display;
+}
+
+/* CARD */
+.card{
+  background:rgba(255,255,255,0.04);
+  padding:30px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.08);
+  margin-bottom:20px;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:25px;
+}
+
+/* TAGS */
+.tag{
+  display:inline-block;
+  padding:6px 12px;
+  margin:4px;
+  font-size:12px;
+  background:rgba(255,255,255,0.07);
+  border-radius:20px;
+}
+
+/* IMAGE GALLERY */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  margin-top:20px;
+}
+.gallery img{
+  width:100%;
+  border-radius:12px;
+  object-fit:cover;
+  transition:0.4s;
+}
+.gallery img:hover{
+  transform:scale(1.03);
+}
+
+/* TIMELINE */
+.timeline{
+  border-left:2px solid rgba(255,255,255,0.2);
+  padding-left:20px;
+}
+.timeline-item{
+  margin-bottom:30px;
+}
+.timeline-item h3{
+  font-size:1.2rem;
+  margin-bottom:5px;
+  color:#fff;
+}
+.timeline-item span{
+  font-size:0.9rem;
+  color:#aaa;
+}
+
+/* ACCORDION */
+.acc button{
+  width:100%;
+  padding:15px;
+  background:#111;
+  border:none;
+  color:#fff;
+  text-align:left;
+  cursor:pointer;
+  border-radius:8px;
+  margin-bottom:8px;
+  font-size:1rem;
+}
+.panel{
+  max-height:0;
+  overflow:hidden;
+  transition:0.4s ease;
+  background:rgba(255,255,255,0.03);
+  padding:0 15px;
+  border-radius:8px;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:60px;
+  color:#555;
+  font-size:0.9rem;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="#about">ABOUT</a>
+  <a href="#dance">DANCE</a>
+  <a href="#tech">TECH</a>
+  <a href="#exp">EXPERIENCE</a>
+  <a href="#skills">SKILLS</a>
+  <a href="#gallery">GALLERY</a>
+  <a href="#contact">CONTACT</a>
+</nav>
+
+<header>
+  <div class="circle"></div>
+  <div class="circle"></div>
+
+  <h1>Gabriela Velasco</h1>
+  <div id="typing"></div>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2>ABOUT</h2>
+  <div class="card">
+    <p>
+      Gabriela Velasco bewegt sich zwischen Technologie, künstlerischer Körperbewegung und Naturwissenschaft.
+      Als Web- & Softwareentwicklerin, internationale Tänzerin, Choreografin, Dev-Tech und IT-Systemadministratorin verbindet sie
+      digitale Präzision mit physischer Ausdruckskraft. Ihre Arbeit entsteht an den Schnittpunkten von Kunst, Wissenschaft,
+      IT-Infrastruktur, IoT und Körperbewusstsein.
+    </p>
+  </div>
+</section>
+
+<!-- DANCE -->
+<section id="dance">
+  <h2>DANCE UNIVERSE</h2>
+
+  <div class="grid">
+    <div class="card">
+      <strong>Choreography & Performance</strong><br><br>
+      Internationale Auftritte, Solo-Werke, Festivalproduktionen, Improvisationsforschung.
+      <div>
+        <span class="tag">Contemporary</span>
+        <span class="tag">Ballet</span>
+        <span class="tag">Brazilian Rhythm</span>
+        <span class="tag">Improvisation</span>
+        <span class="tag">Butoh Research</span>
+        <span class="tag">Stage-Dance Technik</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <strong>Major Projects</strong><br><br>
+      Bicicleta em Movimento<br>
+      Solidão à Flor da Pele<br>
+      Almost 55 (Andrea Pivatto)<br>
+      Repentismo × AI Poetry Slam<br>
+      International Solo Tanz Theater Festival Stuttgart
+    </div>
+
+    <div class="card">
+      <strong>Teaching Worldwide</strong><br><br>
+      Brasilien · USA · Frankreich · Spanien · Kuba<br>
+      Workshops, Bühnen- & Körpertechnik, kulturelle Austauschprogramme.
+    </div>
+  </div>
+</section>
+
+<!-- TECHNOLOGY -->
+<section id="tech">
+  <h2>TECHNOLOGY</h2>
+  <div class="card">
+    <p>
+      Fullstack Development · IT-Systemadministration · IoT · Virtualisierung · Monitoring · Automation · Creative Coding.
+      Gabriela verbindet technische Systeme mit künstlerischer Denkweise – Code als Choreografie, Infrastruktur als Bewegungssystem.
+    </p>
+    <br>
+    <span class="tag">Angular</span>
+    <span class="tag">React</span>
+    <span class="tag">Node.js</span>
+    <span class="tag">Python</span>
+    <span class="tag">Java</span>
+    <span class="tag">Proxmox</span>
+    <span class="tag">Linux</span>
+    <span class="tag">IoT</span>
+    <span class="tag">Zabbix</span>
+    <span class="tag">Icinga2</span>
+    <span class="tag">Azure AD</span>
+    <span class="tag">Entra ID</span>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="exp">
+  <h2>EXPERIENCE</h2>
+
+  <div class="acc">
+
+    <button onclick="toggle(this)">IT SYSTEM ADMINISTRATION</button>
+    <div class="panel">
+      <p>
+        Nicolay GmbH · Biteno GmbH · Hochschule Ludwigsburg<br>
+        Monitoring, Virtualisierung, Firewall, ERP-Systeme, AD/Entra ID, Security, Troubleshooting.
+      </p>
+    </div>
+
+    <button onclick="toggle(this)">FULLSTACK DEVELOPMENT</button>
+    <div class="panel">
+      <p>
+        DATEC24 · Freelance<br>
+        Webapps, APIs, Frontend-Architektur, UX, Medienmanagement, Kundenprojekte.
+      </p>
+    </div>
+
+    <button onclick="toggle(this)">DANCE & INTERNATIONAL TEACHING</button>
+    <div class="panel">
+      <p>
+        Ballet & Contemporary · Workshops · Internationale Festivals · Kulturprojekte.
+      </p>
+    </div>
+
+  </div>
+
+  <br><br>
+
+  <h3 style="margin-bottom:20px;">Timeline</h3>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <h3>IT-Systemadministratorin – Nicolay GmbH</h3>
+      <span>2025–2026</span>
+    </div>
+
+    <div class="timeline-item">
+      <h3>Fachinformatikerin – Biteno GmbH</h3>
+      <span>2025</span>
+    </div>
+
+    <div class="timeline-item">
+      <h3>Fullstack Developer – DATEC24</h3>
+      <span>2023–2024</span>
+    </div>
+
+    <div class="timeline-item">
+      <h3>Internationale Tänzerin & Choreografin</h3>
+      <span>2005–2021</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <h2>SKILLS</h2>
+  <div class="card">
+    Web Development · UI/UX · System Administration · Networking · IoT · Creative Direction · Choreography · Teaching · Multimedia Production
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <h2>GALLERY</h2>
+  <div class="gallery">
+    <img src="img/dancing-1.jpeg" alt="">
+    <img src="img/dancing-2.jpeg" alt="">
+    <img src="img/dancing-3.jpeg" alt="">
+    <img src="img/dancing-4.jpeg" alt="">
+    <img src="img/dancing-6.jpeg" alt="">
+    <img src="img/me-1.jpeg" alt="">
+    <img src="img/me-2.jpeg" alt="">
+    <img src="img/me-3.jpeg" alt="">
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>CONTACT</h2>
+  <div class="card">
+    Email: gabriela.luppe@gmail.com<br>
+    GitHub: github.com/GabiVelasco<br>
+    Website: www.gabrielavelasco.de<br>
+    Telefon: +49 176 420 70836
+  </div>
+</section>
+
+<footer>
+  © Gabriela Velasco — Art × Code × Movement
+</footer>
+
+<script>
+// SMOOTH SCROLL
+document.querySelectorAll('nav a').forEach(a=>{
+  a.onclick = e=>{
+    e.preventDefault();
+    document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+  };
+});
+
+// SCROLL REVEAL
+const sections=document.querySelectorAll('section');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) e.target.classList.add('show');
+  });
+},{threshold:0.15});
+sections.forEach(s=>obs.observe(s));
+
+// ACCORDION
+function toggle(btn){
+  const panel=btn.nextElementSibling;
+  panel.style.maxHeight = panel.style.maxHeight ? null : panel.scrollHeight + "px";
+}
+
+// TYPING EFFECT
+const text="Art · Code · Movement · Systems Thinking · Choreography of Technology";
+let i=0;
+function type(){
+  if(i<text.length){
+    document.getElementById("typing").innerHTML+=text.charAt(i);
+    i++;
+    setTimeout(type,40);
+  }
+}
+type();
+</script>
+
+</body>
+</html>
